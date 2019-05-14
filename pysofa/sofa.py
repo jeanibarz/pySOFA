@@ -376,3 +376,17 @@ class SOFA(object):
 
         if not isinstance(sofa_file, tbls.file.File):
             tblsfile.close()
+
+    def get_source(self, azimut, elevation, radius):
+        """
+        Return the index of the nearest (azimut,elevation) source, with a 3-tuple (azimut_error, elevation_error, radius_error)
+        :param azimut:
+        :param elevation:
+        :param radius:
+        :return: index
+        """
+        for i in range(self.Source.Position.shape[0]):
+            if list(self.Source.Position[i]) == [azimut, elevation, radius]:
+                return i
+
+        return None
