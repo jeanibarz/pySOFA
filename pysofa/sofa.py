@@ -347,15 +347,12 @@ class SOFA(object):
         for attribute in other_attributes:
             _add_attribute(self, tblsfile, '/', attribute, required=True)
 
-
-
         if self.SOFAConventions == b'SimpleFreeFieldHRIR':
             assert self.DataType == b'FIR'
             req_attributes = ['DatabaseName']
 
             for attribute in req_attributes:
                 _add_attribute(self, tblsfile, '/', attribute)
-        print()
 
         # read information about the three required Audio Objects
         self.Room = RoomObject(tblsfile)
